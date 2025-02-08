@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:luxira_ecommerce_app/core/resources/app_strings.dart';
 import 'package:luxira_ecommerce_app/core/resources/app_theme.dart';
-import 'core/resources/app_values.dart';
+import 'core/routing/routes.dart';
 import 'core/routing/routing.dart';
 
 class MyApp extends StatelessWidget {
@@ -10,12 +11,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: AppStrings.appName,
-      theme: AppTheme.lightTheme,
-      initialRoute: Routes.splash,
-      onGenerateRoute: routing.onGenerateRoute,
-     );
+    return ScreenUtilInit(
+      designSize: const Size(428, 932),
+      minTextAdapt: true,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: AppStrings.appName,
+        theme: AppTheme.lightTheme,
+        initialRoute: Routes.splash,
+        onGenerateRoute: routing.onGenerateRoute,
+       ),
+    );
   }
 }
